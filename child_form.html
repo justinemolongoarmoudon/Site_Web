@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>{% if child %}Éditer{% else %}Créer{% endif %} un profil enfant</h2>
+
+  <form method="post">
+    <div class="row">
+      <div style="flex:1;min-width:220px;">
+        <label>Prénom</label>
+        <input name="firstname" value="{{ child.firstname if child else '' }}" required>
+      </div>
+
+      {% if not child %}
+      <div style="flex:1;min-width:220px;">
+        <label>Montant de départ</label>
+        <input name="balance" value="0" required>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+      <div style="flex:1;min-width:220px;">
+        <label>Argent de poche</label>
+        <input name="allowance" value="{{ child.allowance if child else '0' }}" required>
+      </div>
+      <div style="flex:1;min-width:220px;">
+        <label>Fréquence</label>
+        <select name="frequency" required>
+          <option value="hebdomadaire" {% if child and child.frequency=='hebdomadaire' %}selected{% endif %}>Hebdomadaire</option>
+          <option value="mensuelle" {% if child and child.frequency=='mensuelle' %}selected{% endif %}>Mensuelle</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+      <div style="flex:1;min-width:220px;">
+        <label>Paypal (optionnel)</label>
+        <input name="paypal" value="{{ child.paypal if child and child.paypal else '' }}">
+      </div>
+      <div style="flex:1;min-width:220px;">
+        <label>IBAN (optionnel)</label>
+        <input name="iban" value="{{ child.iban if child and child.iban else '' }}">
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:14px;">
+      <button class="btn" type="submit">Valider</button>
+      <a class="btn secondary" href="{{ url_for('home') }}">Retour</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

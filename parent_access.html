@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+.page{
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 15px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* carte glass avec cadre */
+.parent-card{
+  width: min(700px, 92vw);
+  padding: 36px 40px;
+
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 2px solid rgba(255,255,255,0.45);
+  border-radius: 22px;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.15),
+    0 20px 40px rgba(0,0,0,0.35);
+
+  text-align: center;
+}
+
+/* titres */
+.parent-card h1{
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.parent-card p{
+  color: #fff;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+/* formulaire */
+.form-group{
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+label{
+  color: #fff;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input, select{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+}
+
+/* boutons */
+.actions{
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.btn{
+  min-width: 140px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  background: #0f172a;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-secondary{
+  background: #374151;
+}
+
+.title-center{
+  text-align: center;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.subtitle-center{
+  text-align: center;
+  color: #fff;
+  opacity: 0.9;
+  margin-bottom: 26px;
+}
+
+@media (max-width: 520px){
+  .actions{
+    flex-direction: column;
+  }
+  .btn{
+    width: 100%;
+  }
+}
+</style>
+
+<div class="card">
+  <h1 class="title-center">Accès Parent</h1>
+  <p class="subtitle-center">Entrez les informations requises</p>
+
+  <form method="post" class="form-narrow">
+    <div style="margin:10px 0;">
+      <label>Nom d'utilisateur</label>
+      <input name="username" required>
+    </div>
+
+    <div style="margin:10px 0;">
+      <label>Mot de passe</label>
+      <input name="password" type="password" required>
+    </div>
+
+    <div style="margin:10px 0;">
+      <label>Confirmer le mot de passe</label>
+      <input name="confirm" type="password" required>
+    </div>
+
+    <div class="actions" style="margin-top:14px;">
+      <button class="btn" type="submit">Créer</button>
+      <a class="btn secondary" href="{{ url_for('login') }}">Retour</a>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

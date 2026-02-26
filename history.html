@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <div class="row" style="justify-content:space-between;align-items:center;">
+    <div>
+      <h2>Historique - {{ child.firstname }}</h2>
+      <div class="muted">Vert = crédits / Rouge = débits</div>
+    </div>
+    <a class="btn secondary" href="{{ url_for('child_profile', child_id=child.id) }}">Retour</a>
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Méthode</th>
+          <th>Note</th>
+          <th>Montant</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for op in ops %}
+          {% set is_credit = (op.op_type in ['credit','allowance']) %}
+          <tr>
+            <td>{{ op.created_at.replace('T', ' ') }}</td>
+            <td>{{ op.op_type }}</td>
+            <td>{{ op.method or '' }}</td>
+            <td class="muted">{{ op.note or '' }}</td>
+            <td class="amount {{ 'pos' if is_credit else 'neg' }}">
+              {{ '+' if is_credit else '-' }}{{ "%.2f"|format(op.amount) }} €
+            </td>
+          </tr>
+        {% else %}
+          <tr><td colspan="5" class="muted">Aucune opération.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+
+  /* 1) voile léger + 2) image money_bg */
+  background:
+    linear-gradient(rgba(16, 15, 15, 0.327), rgba(33, 33, 33, 0.466)),
+    url("{{ url_for('static', filename='img/money_bg.png') }}");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* boost la visibilité */
+  filter: saturate(1.15) contrast(1.08);
+}
+
+.btn-primary{
+  background: rgba(10,14,30,0.9);
+  color: rgba(255,255,255,0.95);
+}
+
+</style>
+{% endblock %}

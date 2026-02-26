@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+/* Centre la page + la card */
+body{
+  margin:0;
+  min-height:100vh;
+
+  /* 1) voile léger + 2) image money_bg */
+  background:
+    linear-gradient(rgba(16, 15, 15, 0.327), rgba(33, 33, 33, 0.466)),
+    url("{{ url_for('static', filename='img/money_bg.png') }}");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* boost la visibilité */
+  filter: saturate(1.15) contrast(1.08);
+}
+
+
+.page{
+  min-height: calc(100vh - 80px); /* hauteur sous la navbar */
+  display: flex;
+  justify-content: center;        /* centre horizontalement */
+  align-items: flex-start;        /* en HAUT */
+  padding-top: 15px;              /* espace sous la navbar */
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+
+.card-lg{
+  width: min(900px, 92vw);
+  padding: 34px;
+}
+
+/* Titres */
+.title{
+  margin: 0 0 18px;
+}
+
+/* Actions (boutons) */
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+  justify-content:flex-start;
+}
+
+/* Boutons (corrigés) */
+.btn{
+  width:auto;                 /* <-- IMPORTANT: plus de 100% */
+  min-width: 140px;
+  padding: 14px 18px;
+  border:0;
+  border-radius: 14px;
+  background:#0f172a;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}
+
+.btn-secondary{
+  background:#374151;
+}
+
+/* Mobile: boutons full width si tu veux */
+@media (max-width: 520px){
+  .actions .btn{ width:100%; }
+}
+
+.label-white{
+  color: #ffffff;
+  font-weight: 700;   /* gras */
+  font-size: 1.05rem; /* un peu plus lisible (optionnel) */
+}
+
+h1{
+  color: #ffffff;
+  font-weight: 700;   /* gras */
+}
+
+.add-card{
+  width: min(700px, 92vw);
+  padding: 36px 40px;
+
+  /* fond opaque */
+  background: rgba(255, 255, 255, 0.521);
+
+  /* effet verre */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  /* CADRE */
+  border: 2px solid rgba(255, 255, 255, 0.832);
+
+  border-radius: 22px;
+
+  /* ombre pour détacher du fond */
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.15),
+    0 20px 40px rgba(0,0,0,0.35);
+}
+.add-card{
+  text-align: center;
+}
+.actions{
+  justify-content: center;
+}
+
+</style>
+
+<div class="page">
+  <div class="add-card">
+    <h1>AJOUT : {{ child.firstname }}</h1>
+
+    <form method="post">
+      <div class="form-group">
+        <label class="label-white">Montant à ajouter</label>
+        <input name="amount" type="number" step="0.01" placeholder="Ex : 10" required>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="submit">Valider</button>
+        <a class="btn btn-secondary" href="{{ url_for('child_profile', child_id=child.id) }}">Retour</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

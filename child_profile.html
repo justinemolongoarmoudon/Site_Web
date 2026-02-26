@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Profil : {{ child.firstname }}</h2>
+  <div class="muted">Solde actuel :</div>
+  <div style="font-size:28px;font-weight:700;margin:6px 0 14px 0;">
+    {{ "%.2f"|format(child.balance) }} €
+  </div>
+
+  <div class="row">
+    <a class="btn" href="{{ url_for('child_add', child_id=child.id) }}">AJOUT</a>
+    <a class="btn danger" href="{{ url_for('child_withdraw', child_id=child.id) }}">RETRAIT</a>
+    <a class="btn secondary" href="{{ url_for('child_history', child_id=child.id) }}">HISTORIQUE</a>
+    <a class="btn secondary" href="{{ url_for('child_edit', child_id=child.id) }}">ÉDITER</a>
+  </div>
+
+  <hr style="margin:14px 0;border:none;border-top:1px solid #e5e7eb;">
+
+  <div class="muted">
+    Argent de poche : <b>{{ "%.2f"|format(child.allowance) }} €</b> ({{ child.frequency }})
+  </div>
+  <div class="muted">
+    Paiement :
+    {% if child.paypal %} Paypal OK {% else %} Pas de Paypal {% endif %}
+    -
+    {% if child.iban %} Banque OK {% else %} Pas d’IBAN {% endif %}
+  </div>
+</div>
+{% endblock %}

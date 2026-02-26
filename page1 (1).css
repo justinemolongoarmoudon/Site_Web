@@ -1,0 +1,438 @@
+/* Styles de base */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #fff;
+    background-image: url("assets/fond.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #0078ff;
+    border-radius: 5px;
+}
+
+.nav-links button {
+    align-items: center;
+    display: flex;
+    width: 50px;
+    margin-right: 40px;
+    cursor: pointer;
+    align-content: center;
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-color: transparent;
+}
+
+.reflang {
+    align-items: center;
+    display: flex;
+    width: 50px;
+    margin-right: 40px;
+    cursor: pointer;
+    align-content: center;
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-color: transparent;
+}
+
+/* Section hero */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('background-image.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-weight: 700;
+    font-size: 4em;
+    margin-bottom: 10px;
+    text-shadow: 4px 4px 8px black;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 8px black;
+}
+
+.btn {
+    background-color: #0078ff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #005bb5;
+}
+
+/* Section contenu */
+section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+#parcours {
+        background-color: #1a1a1a; /* Couleur de fond sombre */
+        color: #fff; /* Texte en blanc */
+        padding: 50px 20px;
+        text-align: center;
+    }
+    
+    #parcours h2 {
+        font-size: 2.5em;
+        margin-bottom: 100px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #fff;
+
+    }
+    
+    /* Sous-sections : Présentation et Formation */
+    .section-wrapper {
+        margin-bottom: 50px;
+    }
+    
+    .sub-title {
+        font-size: 1.8em;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+    
+    .presentation-text {
+        text-align: center;
+        font-size: 1em;
+        line-height: 1.6;
+        color: #DAA520; /* Texte un peu adouci */
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    /* Conteneur Formation */
+    .formation-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .formation-card {
+        background-color: #00509e; /* Bleu intense */
+        color: #fff;
+        padding: 50px;
+        border-radius: 100px;
+        width: 700px; /* Largeur fixe pour une carte uniforme */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre douce */
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: start;
+    }
+    
+    .formation-card:hover {
+        transform: scale(1.05); /* Effet de zoom au survol */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Ombre accentuée */
+        background-color: #003b73;
+    }
+    
+    .formation-card h4 {
+        font-size: 1.4em;
+        margin-bottom: 0px;
+        color: #DAA520; /* Jaune vif */
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .formation-card p {
+        margin: 5px 0;
+        font-size: 1em;
+    }
+
+/* Section Compétences */
+#competences {
+    background-color: #003b73; /* Couleur de fond */
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#competences h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.competences-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Pour s'adapter à différentes tailles d'écran */
+    gap: 20px;
+}
+
+.competence-column {
+    background-color: #00509e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%; /* Chaque colonne prend 30% de la largeur */
+    min-width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.competence-column h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #ffeb3b;
+}
+
+.competence-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0078ff;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.competence-card:hover {
+    transform: scale(1.05); /* Effet de zoom au survol */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Ombre accentuée */
+
+}    
+
+.competence-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.competence-card p {
+    margin: 0;
+    font-size: 1em;
+}
+
+
+#portfolio {
+    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre avec transparence */
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+#portfolio h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+/* Conteneur général des éléments du portfolio */
+.portfolio-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Flexbox pour afficher les éléments du portfolio */
+.portfolio-items {
+    display: flex;
+    justify-content: space-between; /* Espacement égal entre les items */
+    flex-wrap: wrap; /* Permet à la grille de s'ajuster sur plusieurs lignes si nécessaire */
+    gap: 30px; /* Espacement entre les éléments */
+}
+
+/* Conteneur d'un projet */
+.portfolio-item {
+    width: 23%; /* Largeur de chaque item (4 éléments par ligne) */
+    background-color: #333; /* Fond gris sombre pour les items */
+    border-radius: 10px; /* Bords arrondis */
+    overflow: hidden; /* Pour que les images ne dépassent pas les bords arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre autour des items */
+    transition: transform 0.3s ease; /* Transition lors du survol */
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
+}
+
+/* Style de l'image */
+.portfolio-item img {
+    width: 100%; /* L'image prend toute la largeur du conteneur */
+    height: 400px; /* Hauteur fixe pour l'image */
+    object-fit: cover; /* L'image est coupée pour bien couvrir l'espace */
+}
+
+/* Titre et texte de la description */
+.portfolio-item h3 {
+    font-size: 1.5em;
+    margin: 20px 0 10px 0;
+    color: #ffdd00; /* Couleur or pour le titre */
+}
+
+.portfolio-item p {
+    font-size: 1em;
+    color: #ddd; /* Texte gris clair */
+    padding: 0 20px 20px;
+}
+
+
+    #contact {
+        background-color: #003b73;
+        color: #fff;
+    }
+    
+    #contact h2 {
+        font-size: 2.5em;
+        margin-bottom: 100px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #fff;
+    }
+    
+    /* Conteneur général */
+    .contact-container {
+        text-align: center;
+        padding: 50px 20px;
+    }
+    
+    /* Texte introductif au-dessus du titre */
+    .contact-text {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        color: #d3d3d3; /* Gris clair pour le contraste */
+    }
+    
+    /* Détails des contacts */
+    .contact-details {
+        display: flex;
+        justify-content: center;
+        gap: 50px; /* Espacement entre les éléments */
+        margin-top: 50px;
+    }
+    
+    .contact-item {
+        background-color: #00509e;
+        padding: 30px; /* Réduit l'espace pour que le texte soit centré */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        width: 500px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* Centre le contenu à l'intérieur */
+        margin-bottom: 20px; /* Ajout d'un espacement entre les éléments */
+    }
+    
+    .contact-item i {
+        font-size: 2em;
+        margin-bottom: 15px;
+        color: #ffdd00; /* Jaune pour l'icône */
+    }
+    
+    /* Titres des items */
+    .contact-item h3 {
+        font-size: 1.5em;
+        text-transform: uppercase;
+        color: #ffdd00; /* Texte en jaune pour se démarquer */
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    
+    /* Texte des items */
+    .contact-item p {
+        font-size: 1.2em;
+        margin: 0;
+        color: #fff;
+    }
+    
+    /* Copyright Section */
+    #copyright {
+        background-color: #1a1a1a;
+        color: #fff;
+        text-align: center;
+        padding: 50px 20px;
+    }
+    
+    #copyright h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #ffdd00; /* Couleur or pour le titre */
+    }
+    
+    #copyright p {
+        font-size: 1.2em;
+        margin: 10px 0;
+        color: #d3d3d3; /* Gris clair pour les informations supplémentaires */
+    }
+    
+    #copyright p:last-child {
+        font-size: 1em;
+        color: #d3d3d3; /* Couleur blanche pour le texte "réalisé par" */
+    }
+
+/* Animation de défilement */
+html {
+    scroll-behavior: smooth;
+}
+
+.iconlang {
+    width: 40px;
+    height: 40px;
+    margin-right: 40px;
+}
